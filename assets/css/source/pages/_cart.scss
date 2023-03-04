@@ -1,0 +1,44 @@
+.cart-page {
+  padding-top: ($indent__m * 2);
+
+  .top-titles {
+    h1 {
+      @include lib-font-size(40px);
+
+      .count {
+        @include lib-font-size(50px);
+      }
+    }
+  }
+
+  .empty-cart {
+    a {
+      color: $color-green;
+      @include lib-link-underline();
+    }
+
+    p {
+      margin-bottom: $indent__half;
+    }
+  }
+
+  .cart-sides {
+    margin-top: $indent__base;
+  }
+
+  .cart-items-side {
+    padding-right: $indent__m;
+    box-sizing: border-box;
+  }
+
+  .cart-summary,
+  .shipping-information {
+    background: $color-smoke;
+    padding: $indent__base;
+    box-sizing: border-box;
+
+    h4 {
+      margin-bottom: $indent__s;
+    }
+  }
+}

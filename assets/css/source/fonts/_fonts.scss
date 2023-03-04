@@ -1,0 +1,89 @@
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Bold',
+    $font-weight: $font-weight__bold,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-ExtraBold',
+    $font-weight: $font-weight__extrabold,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-ExtraLight',
+    $font-weight: $font-weight__extralight,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Heavy',
+    $font-weight: $font-weight__heavy,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Medium',
+    $font-weight: $font-weight__medium,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Thin',
+    $font-weight: $font-weight__thin,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Light',
+    $font-weight: $font-weight__light,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-Regular',
+    $font-weight: $font-weight__normal,
+    $font-display: swap
+  );
+}
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $font-family-name__raleway,
+    $font-path: '#{$fontsDir}/Raleway/Raleway-SemiBold',
+    $font-weight: $font-weight__semibold,
+    $font-display: swap
+  );
+}
+
+
+@font-face {
+  @include lib-font-face(
+    $family-name: $icomoon-font-family,
+    $font-path: '#{$fontsDir}/fonts/',
+    $font-display: swap
+  );
+}

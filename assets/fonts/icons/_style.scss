@@ -1,0 +1,136 @@
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-left {
+  &:before {
+    content: $icon-angle-left;
+  }
+}
+.icon-angle-right {
+  &:before {
+    content: $icon-angle-right;
+  }
+}
+.icon-heart-fill {
+  &:before {
+    content: $icon-heart-fill;
+  }
+}
+.icon-shopping-bag {
+  &:before {
+    content: $icon-shopping-bag;
+  }
+}
+.icon-avatar {
+  &:before {
+    content: $icon-avatar;
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search;
+  }
+}
+.icon-angle-down {
+  &:before {
+    content: $icon-angle-down;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-arrow-long-left {
+  &:before {
+    content: $icon-arrow-long-left;
+  }
+}
+.icon-arrow-long-right {
+  &:before {
+    content: $icon-arrow-long-right;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-calendar {
+  &:before {
+    content: $icon-calendar;
+  }
+}
+.icon-checkbox-checked {
+  &:before {
+    content: $icon-checkbox-checked;
+  }
+}
+.icon-checkbox {
+  &:before {
+    content: $icon-checkbox;
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
+  }
+}
+.icon-minus {
+  &:before {
+    content: $icon-minus;
+  }
+}
+.icon-phone {
+  &:before {
+    content: $icon-phone;
+  }
+}
+.icon-pluse {
+  &:before {
+    content: $icon-pluse;
+  }
+}
+.icon-telegram {
+  &:before {
+    content: $icon-telegram;
+  }
+}
+.icon-youtube {
+  &:before {
+    content: $icon-youtube;
+  }
+}
+.icon-heart {
+  &:before {
+    content: $icon-heart;
+  }
+}
+.icon-checkmark {
+  &:before {
+    content: $icon-checkmark;
+  }
+}
+

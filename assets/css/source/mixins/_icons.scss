@@ -1,0 +1,100 @@
+@mixin lib-icon-font(
+  $_icon-font-content: false,
+  $_icon__font-family: $icomoon-font-family,
+  $_icon__width: false,
+  $_icon__height: false,
+  $_icon__line-height: 16px,
+  $_icon-font-color: $color-black,
+  $_icon-font-background: false,
+  $_icon-font-hover-background: false,
+  $_icon-hover__color: false,
+  $_icon__vertical-align: middle,
+  $_icon__position: before,
+  $_icon__margin: false,
+  $_icon__padding: false,
+  $_icon-font-size: 16px,
+  $_icon-font-display: inline-block,
+  $_icon-font-text-hide: false,
+  $_icon-font-border-radius: false,
+  $_icon-border: false,
+  $_icon-border-hover: false
+) {
+  &:#{$_icon__position} {
+    @include lib-css(content, $_icon-font-content);
+    @include lib-css(font-family, $_icon__font-family);
+    @include lib-css(width, $_icon__width);
+    @include lib-css(height, $_icon__height);
+    @include lib-css(color, $_icon-font-color);
+    @include lib-css(background, $_icon-font-background);
+    @include lib-css(vertical-align, $_icon__vertical-align);
+    @include lib-css(margin, $_icon__margin);
+    @include lib-css(padding, $_icon__padding);
+    @include lib-css(border-radius, $_icon-font-border-radius);
+    @include lib-font-size($_icon-font-size);
+    @include lib-line-height($_icon__line-height);
+    @include lib-css(display, $_icon-font-display);
+    @include lib-css(border, $_icon-border);
+  }
+
+  @if ($_icon-font-text-hide) {
+    font-size: 0;
+  }
+
+  &:hover:#{$_icon__position} {
+    @include lib-css(color, $_icon-hover__color);
+    @include lib-css(background, $_icon-font-hover-background);
+    @include lib-css(border, $_icon-border-hover);
+  }
+}
+
+@mixin lib-icon-font-symbol(
+  $_icon__content,
+  $_icon__position: before
+) {
+  &:#{$_icon__position} {
+    @include lib-css(content, $_icon__content);
+  }
+}
+
+@mixin lib-icon-font-size(
+  $_icon__font-size,
+  $_icon__line-height: false,
+  $_icon__position: before
+) {
+  &:#{$_icon__position} {
+    @include lib-font-size($_icon__font-size);
+    @include lib-line-height($_icon__line-height);
+  }
+}
+
+@mixin lib-icon-size(
+  $_width,
+  $_height,
+  $_icon__position: before
+) {
+  &:#{$_icon__position} {
+    @include lib-css(width, $_width);
+    @include lib-css(height, $_height);
+  }
+}
+
+@mixin lib-icon-font-color(
+  $_icon__color,
+  $_icon__color_hover: false,
+  $_icon__position: before
+) {
+  &:#{$_icon__position} {
+    @include lib-css(color, $_icon__color);
+  }
+
+  &:hover:#{$_icon__position} {
+    @include lib-css(color, $_icon__color_hover);
+  }
+}
+
+@mixin _lib-icon-image-position(
+  $_icon-image-position-x,
+  $_icon-image-position-y
+) {
+  @include lib-css(background-position, $_icon-image-position-x $_icon-image-position-y);
+}

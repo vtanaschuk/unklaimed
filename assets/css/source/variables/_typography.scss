@@ -1,0 +1,23 @@
+$baseDir: '~@/assets/';
+$fontsDir: "#{$baseDir}fonts";
+
+$font-size__base: 16px;
+$line-height__base: 1.4;
+$border-width__base: 1px;
+$font-weight__thin: 100;
+$font-weight__extralight: 200;
+$font-weight__light: 300;
+$font-weight__regular: 400;
+$font-weight__normal: $font-weight__regular;
+$font-weight__medium: 500;
+$font-weight__semibold: 600;
+$font-weight__bold: 700;
+$font-weight__extrabold: 800;
+$font-weight__heavy: 900;
+$font-style__base: normal;
+
+$font-family-name__raleway: 'Raleway';
+
+$font-family__sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family__family: $font-family__sans-serif;
+$font-family__base: $font-family-name__raleway, $font-family__family;

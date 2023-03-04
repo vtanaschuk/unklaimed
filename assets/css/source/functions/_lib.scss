@@ -1,0 +1,17 @@
+@function lib-url(
+  $_value,
+  $_path: $baseDir
+) {
+  @return url('#{$_path}#{$_value}');
+}
+
+@function lib-url-svg(
+  $_value,
+  $_path: $baseDirSvg
+) {
+  @return url('#{$_path}#{$_value}');
+}
+
+@function fade($color, $opacity) {
+  @return rgba($color, $opacity);
+}

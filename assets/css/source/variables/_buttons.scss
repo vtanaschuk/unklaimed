@@ -1,0 +1,11 @@
+@use 'sass:math' as math;
+
+$default-transition: 0.3s;
+$link__color: $color-green;
+
+//  Link Underline
+$link-underline__border-margin-top: math.div($indent__half, 2);
+$link-underline__border: 2px solid transparent;
+$link-underline__border-position: before;
+
+$link-underline__hover__border: 2px solid $link__color;

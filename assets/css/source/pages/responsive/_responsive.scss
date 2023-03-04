@@ -1,0 +1,29 @@
+@media #{$desktop__min-width} {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@media #{$mobile__max-width} {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media #{$from-mobile-to-ipad-p} {
+  .hide-ipad-p {
+    display: none !important;
+  }
+}
+
+@media #{$from-ipad-p-to-ipad-l} {
+  .hide-ipad-l {
+    display: none !important;
+  }
+}
+
+@media #{$from-mobile-to-ipad-l} {
+  .hide-ipad {
+    display: none !important;
+  }
+}

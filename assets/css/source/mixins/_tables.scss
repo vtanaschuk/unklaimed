@@ -1,0 +1,475 @@
+//
+//  Tables
+//  _____________________________________________
+
+@mixin lib-table(
+  $_table-width: $table__width,
+  $_cell-padding-vertical: $table-cell__padding-vertical,
+  $_cell-padding-horizontal: $table-cell__padding-horizontal,
+  $_table-margin-bottom: $table__margin-bottom
+) {
+  @include lib-css(margin-bottom, $_table-margin-bottom);
+  @include lib-css(width, $_table-width);
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        vertical-align: top;
+      }
+    }
+  }
+
+  > thead > tr {
+    > th,
+    > td {
+      vertical-align: bottom;
+    }
+  }
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        @include lib-css(padding, $_cell-padding-vertical $_cell-padding-horizontal);
+      }
+    }
+  }
+}
+
+@mixin lib-table-typography(
+  $_table-td-font-size: $table-td__font-size,
+  $_table-td-color: $table-td__color,
+  $table-td-font-family: $table-td__font-family,
+  $table-td-font-weight: $table-td__font-weight,
+  $table-td-line-height: $table-td__line-height,
+  $table-td-font-style: $table-td__font-style,
+  $table-th-font-size: $table-th__font-size,
+  $table-th-color: $table-th__color,
+  $table-th-font-family: $table-th__font-family,
+  $table-th-font-weight: $table-th__font-weight,
+  $table-th-line-height: $table-th__line-height,
+  $table-th-font-style: $table-th__font-style
+) {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > td {
+        @include lib-typography(
+          $font-size: $table-td-font-size,
+          $color: $table-td-color,
+          $font-family: $table-td-font-family,
+          $font-weight: $table-td-font-weight,
+          $line-height: $table-td-line-height,
+          $font-style: $table-td-font-style
+        );
+      }
+
+      > th {
+        @include lib-typography(
+          $font-size: $table-th-font-size,
+          $color: $table-th-color,
+          $font-family: $table-th-font-family,
+          $font-weight: $table-th-font-weight,
+          $line-height: $table-th-line-height,
+          $font-style: $table-th-font-style
+        );
+      }
+    }
+  }
+}
+
+@mixin lib-table-background-color(
+  $table-background-color: $table__background-color,
+  $table-head-background-color: $table-head__background-color,
+  $table-foot-background-color: $table-foot__background-color,
+  $table-td-background-color: $table-td__background-color,
+  $table-body-th-background-color: $table-body-th__background-color) {
+  @include lib-css(background, $table-background-color);
+
+  > thead {
+    @include lib-css(background, $table-head-background-color);
+  }
+
+  > tfoot {
+    @include lib-css(background, $table-foot-background-color);
+  }
+
+  > tbody > tr > td {
+    @include lib-css(background, $table-td-background-color);
+  }
+
+  > tbody > tr > th {
+    @include lib-css(background, $table-body-th-background-color);
+  }
+
+}
+
+@mixin lib-table-resize(
+  $td-padding-top: calc(#{$table-cell__padding-vertical} / 2),
+  $td-padding-right: calc(#{$table-cell__padding-horizontal} / 2),
+  $td-padding-bottom: $td-padding-top,
+  $td-padding-left: $td-padding-right,
+  $th-padding-top: $td-padding-top,
+  $th-padding-right: $td-padding-right,
+  $th-padding-bottom: $td-padding-top,
+  $th-padding-left: $td-padding-right) {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > td {
+        @include lib-css(padding, $td-padding-top $td-padding-right $td-padding-bottom $td-padding-left);
+      }
+
+      > th {
+        @include lib-css(padding, $th-padding-top $th-padding-right $th-padding-bottom $th-padding-left);
+      }
+    }
+  }
+
+}
+
+@mixin lib-table-bordered(
+  $table_type: normal,
+  $table_border-width: $table__border-width,
+  $table_border-style: $table__border-style,
+  $table_border-color: $table__border-color
+) {
+  @if ($table_type == normal) {
+    @include lib-css(border, $table_border-width $table_border-style $table_border-color);
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include lib-css(border, $table_border-width $table_border-style $table_border-color);
+        }
+      }
+    }
+  } @else if ($table_type == horizontal) {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include lib-css(border-top, $table_border-width $table_border-style $table_border-color);
+        }
+      }
+    }
+
+    > caption + thead,
+    > colgroup + thead,
+    > thead:first-child {
+      > tr:first-child {
+        > th,
+        > td {
+          border-top: 0;
+        }
+      }
+    }
+
+    > tbody + tbody {
+      @include lib-css(border-top, $table_border-width $table_border-style $table_border-color);
+    }
+  } @else if ($table_type == horizontal_body) {
+    > tbody {
+      > tr {
+        > th,
+        > td {
+          @include lib-css(border-top, $table_border-width $table_border-style $table_border-color);
+        }
+      }
+    }
+
+    > tbody + tbody {
+      @include lib-css(border-top, $table_border-width $table_border-style $table_border-color);
+    }
+  } @else if ($table_type == vertical) {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          @include lib-css(border-left, $table_border-width $table_border-style $table_border-color);
+
+          &:first-child {
+            border-left: none;
+          }
+        }
+      }
+    }
+  } @else if ($table_type == light) {
+    border: none;
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          border: none;
+        }
+      }
+    }
+
+    > thead {
+      > tr {
+        > th,
+        > td {
+          @include lib-css(border-bottom, $table_border-width $table_border-style $table_border-color);
+        }
+      }
+    }
+  } @else if ($table_type == clear) {
+    border: none;
+
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+
+@mixin lib-table-striped(
+  $stripped-background-color: $table-cell-stripped__background-color,
+  $stripped-color: $table-cell-stripped__color,
+  $stripped-direction: horizontal,
+  $stripped-highlight: odd
+) {
+  @if ($stripped-highlight == odd and $stripped-direction == horizontal) {
+    > tbody > tr:nth-child(odd) {
+      > td,
+      > th {
+        @include lib-css(background, $stripped-background-color);
+
+        @include lib-css(color, $stripped-color);
+      }
+    }
+  } @else if ($stripped-highlight == even and $stripped-direction == horizontal) {
+    > tbody > tr:nth-child(even) {
+      > td,
+      > th {
+        @include lib-css(background, $stripped-background-color);
+
+        @include lib-css(color, $stripped-color);
+      }
+    }
+  } @else if ($stripped-highlight == odd and $stripped-direction == vertical) {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:nth-child(odd),
+        > td:nth-child(odd) {
+          @include lib-css(background, $stripped-background-color);
+
+          @include lib-css(color, $stripped-color);
+        }
+      }
+    }
+  } @else if ($stripped-highlight == even and $stripped-direction == vertical) {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:nth-child(even),
+        > td:nth-child(even) {
+          @include lib-css(background, $stripped-background-color);
+
+          @include lib-css(color, $stripped-color);
+        }
+      }
+    }
+  }
+}
+
+
+@mixin lib-table-hover(
+  $table_cell-background-color-hover: $table-cell__hover__background-color,
+  $table_cell-odd-background-color-hover: $table_cell-background-color-hover) {
+  > tbody > tr:nth-child(even):hover {
+    > td,
+    > th {
+      @include lib-css(background, $table_cell-background-color-hover);
+    }
+  }
+
+  > tbody > tr:nth-child(odd):hover {
+    > td,
+    > th {
+      @include lib-css(background, $table_cell-odd-background-color-hover);
+    }
+  }
+
+}
+
+@mixin lib-table-overflow() {
+  @include lib-css(margin-bottom, $table__margin-bottom);
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin lib-table-responsive(
+  $table-background-color-responsive: $table-responsive__background-color,
+  $table-th-background-color-responsive: $table-responsive-th__background-color,
+  $reset-table-striped: false,
+  $reset-table-hover: false,
+  $table-responsive-cell-padding: $table-responsive-cell__padding) {
+  @if ($reset-table-striped == false and $reset-table-hover == false) {
+    @include _lib-responsive-table(
+      $table-background-color-responsive: $table-background-color-responsive,
+      $table-responsive-cell-padding: $table-responsive-cell-padding
+    );
+
+    > tbody > tr > th {
+      @include lib-css(background-color, $table-th-background-color-responsive);
+    }
+  } @else if ($reset-table-striped == true and $reset-table-hover == true) {
+    @include lib-table-striped(
+      $stripped-background-color: $table-background-color-responsive
+    );
+    @include lib-table-hover($table_cell-background-color-hover: $table-background-color-responsive,
+    $table_cell-odd-background-color-hover: $table-background-color-responsive);
+
+    @include _lib-responsive-table($table-background-color-responsive: $table-background-color-responsive,
+    $table-responsive-cell-padding: $table-responsive-cell-padding);
+
+    > tbody > tr > th {
+      @include lib-css(background-color, $table-th-background-color-responsive);
+    }
+  } @else if ($reset-table-striped == true and $reset-table-hover == false) {
+    @include lib-table-striped(
+      $stripped-background-color: $table-background-color-responsive
+    );
+
+    @include _lib-responsive-table(
+      $table-background-color-responsive: $table-background-color-responsive,
+      $table-responsive-cell-padding: $table-responsive-cell-padding
+    );
+
+    @include lib-css(
+        background-color,
+        $table-th-background-color-responsive
+    );
+  } @else if ($reset-table-striped == false and $reset-table-hover == true) {
+    @include lib-table-hover(
+      $table_cell-background-color-hover: $table-background-color-responsive,
+      $table_cell-odd-background-color-hover: $table-background-color-responsive
+    );
+
+    @include _lib-responsive-table($table-background-color-responsive: $table-background-color-responsive,
+    $table-responsive-cell-padding: $table-responsive-cell-padding);
+
+    > tbody > tr > th {
+      @include lib-css(background-color, $table-th-background-color-responsive);
+    }
+  }
+}
+
+
+@mixin lib-table-caption(
+  $table-caption-hide: $table-caption__hide,
+  $table-caption-font-size: $table-caption__font-size,
+  $table-caption-color: $table-caption__color,
+  $table-caption-font-family: $table-caption__font-family,
+  $table-caption-font-weight: $table-caption__font-weight,
+  $table-caption-font-style: $table-caption__font-style,
+  $table-caption-line-height: $table-caption__line-height,
+  $table-caption-alignment: $table-caption__alignment,
+  $table-caption-margin-top: $table-caption__margin-top,
+  $table-caption-margin-bottom: $table-caption__margin-bottom) {
+  @if ($table-caption-hide == false) {
+    > caption {
+      @include lib-typography($table-caption-font-size,
+        $table-caption-color,
+        $table-caption-font-family,
+        $table-caption-font-weight,
+        $table-caption-line-height,
+        $table-caption-font-style);
+
+      @include lib-css(margin-bottom, $table-caption-margin-bottom);
+
+      @include lib-css(margin-top, $table-caption-margin-top);
+
+      @include lib-css(text-align, $table-caption-alignment);
+    }
+  } @else if ($table-caption-hide == true) {
+    > caption {
+      @include lib-visually-hidden();
+    }
+  }
+}
+
+@mixin _lib-responsive-table(
+  $table-background-color-responsive: $table-background-color-responsive,
+  $table-responsive-cell-padding: $table-responsive-cell-padding) {
+  @include lib-css(
+      background,
+      $table-background-color-responsive
+  );
+  border: none;
+  display: block;
+
+  > thead > tr > th {
+    display: none;
+  }
+
+  > tbody {
+    display: block;
+
+    > tr {
+      display: block;
+
+      td,
+      th {
+        border-bottom: none;
+        display: block;
+
+        @include lib-css(padding, $table-responsive-cell-padding);
+
+        &[data-th]:before {
+          @include lib-css(padding-right, $table-cell__padding-horizontal);
+          content: attr(data-th) ': ';
+          display: inline-block;
+
+          @include lib-typography($font-size: $table-th__font-size,
+          $color: $table-th__color,
+          $font-family: $table-th__font-family,
+          $font-weight: $table-th__font-weight,
+          $line-height: $table-th__line-height,
+          $font-style: $table-th__font-style);
+        }
+      }
+
+      td {
+        @include lib-css(background, $table-background-color-responsive);
+      }
+    }
+  }
+}
+

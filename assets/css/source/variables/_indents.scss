@@ -1,0 +1,11 @@
+@use 'sass:math' as math;
+
+$indent__base:  32px;                               // 32px
+$indent__half:  math.div($indent__base, 2);         // 16px
+$indent__xl:    floor($indent__base * 2);                  // 64px
+$indent__l:     floor($indent__base * 1.5);       // 48px
+$indent__m:     floor($indent__base * 1.25);       // 40px
+$indent__s:     floor($indent__base * 0.75);       // 24px
+$indent__xxs:    ceil($indent__base * 0.375); // 12px
+$indent__quarter:  math.div($indent__base, 4);   // 8px
+$indent__scanty:  math.div($indent__base, 8);   // 4px

@@ -1,0 +1,356 @@
+@mixin lib-vendor-prefix-display(
+  $_value: flex
+) {
+  display: -webkit-#{$_value};
+  display: -ms-#{$_value}box;
+  display: $_value;
+}
+
+@mixin lib-vendor-prefix-flex-grow(
+  $_value: 0
+) {
+  -webkit-flex-grow: $_value;
+  flex-grow: $_value;
+}
+
+@mixin lib-vendor-prefix-flex-shrink(
+  $_value: 1
+) {
+  -webkit-flex-shrink: $_value;
+  flex-shrink: $_value;
+}
+
+@mixin lib-vendor-prefix-flex-basis(
+  $_value: auto
+) {
+  -webkit-flex-basis: $_value;
+  flex-basis: $_value;
+}
+
+@mixin lib-vendor-prefix-flex-wrap(
+  $_value: wrap
+) {
+  -webkit-flex-wrap: $_value;
+  flex-wrap: $_value;
+}
+
+@mixin lib-vendor-prefix-flex-direction(
+  $_value: column
+) {
+  -webkit-flex-direction: $_value;
+  -ms-flex-direction: $_value;
+  flex-direction: $_value;
+}
+
+@mixin lib-vendor-prefix-order(
+  $_value: 0
+) {
+  -ms-flex-order: $_value;
+  -webkit-order: $_value;
+  order: $_value;
+}
+
+@mixin lib-vendor-box-align(
+  $_value: stretch
+) {
+  -webkit-align-items: $_value;
+  -ms-align-items: $_value;
+  align-items: $_value;
+}
+
+@mixin lib-vendor-prefix-appearance(
+  $_value: none
+) {
+  -webkit-appearance: $_value;
+  -moz-appearance: $_value;
+  appearance: $_value;
+}
+
+@mixin lib-vendor-prefix-column-count(
+  $_value
+) {
+  -webkit-column-count: $_value;
+  -moz-column-count: $_value;
+  column-count: $_value;
+}
+
+@mixin lib-css(
+  $_property,
+  $_value,
+  $_prefix: 0
+) {
+  @if $_prefix == 1 and $_value != '' and $_value != false {
+    #{$_property}: -webkit-#{$_value};
+    #{$_property}: -ms-#{$_value}box;
+    #{$_property}: $_value;
+  } @else if $_prefix == 0 and $_value != '' and $_value != false {
+    #{$_property}: $_value;
+  }
+}
+
+@mixin lib-input-placeholder(
+  $_input-placeholder-color: $form-element-input-placeholder__color,
+  $_input-placeholder-font-weight: $font-weight__regular,
+  $_input-placeholder-font-size: $font-size__base,
+) {
+  &::-webkit-input-placeholder {
+    @include lib-css(color, $_input-placeholder-color);
+    @include lib-css(font-weight, $_input-placeholder-font-weight);
+    @include lib-css(font-size, $_input-placeholder-font-size);
+  }
+
+  &:-moz-placeholder {
+    @include lib-css(color, $_input-placeholder-color);
+    @include lib-css(font-weight, $_input-placeholder-font-weight);
+    @include lib-css(font-size, $_input-placeholder-font-size);
+  }
+
+  &::-moz-placeholder {
+    @include lib-css(color, $_input-placeholder-color);
+    @include lib-css(font-weight, $_input-placeholder-font-weight);
+    @include lib-css(font-size, $_input-placeholder-font-size);
+  }
+
+  &:-ms-input-placeholder {
+    @include lib-css(color, $_input-placeholder-color);
+    @include lib-css(font-weight, $_input-placeholder-font-weight);
+    @include lib-css(font-size, $_input-placeholder-font-size);
+  }
+  &:focus {
+    @include lib-css(font-size, $_input-placeholder-font-weight);
+  }
+  &:-moz-focusring {
+    @include lib-css(font-size, $_input-placeholder-font-weight);
+  }
+}
+
+@mixin lib-visually-hidden() {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin lib-visually-hidden-reset(
+  $_lib-position: static,
+  $_lib-margin: 0,
+  $_lib-padding: 0
+) {
+  clip: auto;
+  height: auto;
+  @include lib-css(margin, $_lib-margin);
+  @include lib-css(padding, $_lib-padding);
+  overflow: visible;
+  @include lib-css(position, $_lib-position);
+  width: auto;
+}
+
+@mixin lib-clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin lib-clearer() {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+@mixin lib-rotate($_rotation) {
+  -webkit-transform: rotate($_rotation); //  Use in 8 Safari
+  -ms-transform: rotate($_rotation); //  Use in 9 IE
+  transform: rotate($_rotation);
+}
+
+@mixin lib-rotate-x-y($_rotation, $skew-y) {
+  -webkit-transform: rotate($_rotation) skewY($skew-y); //  Use in 8 Safari
+  -ms-transform: rotate($_rotation) skewY($skew-y); //  Use in 9 IE
+  transform: rotate($_rotation) skewY($skew-y);
+}
+
+@mixin lib-rotate-y($skew-y) {
+  -webkit-transform: skewY($skew-y); //  Use in 8 Safari
+  -ms-transform: skewY($skew-y); //  Use in 9 IE
+  transform: skewY($skew-y);
+}
+
+@mixin lib-inline-block-space-container() {
+  font-size: 0;
+  letter-spacing: -1px;
+  line-height: 0;
+}
+
+@mixin lib-text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin lib-text-hide() {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  text-shadow: none;
+}
+
+@mixin lib-reset-spacing($_margin: 0, $_padding: 0) {
+  @include lib-css(margin, $_margin);
+  @include lib-css(padding, $_padding);
+}
+
+@mixin lib-list-reset-styles($_margin: 0, $_padding: 0) {
+  @include lib-css(margin, $_margin);
+  @include lib-css(padding, $_padding);
+  list-style: none none;
+}
+
+@mixin lib-list-inline() {
+  @include lib-list-reset-styles;
+
+  > li {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+@mixin lib-font-size(
+  $sizeValue
+) {
+  @include lib-css(font-size, rem($sizeValue));
+}
+
+@mixin lib-line-height(
+  $sizeValue
+) {
+  @include lib-css(line-height, rem($sizeValue));
+}
+
+@mixin lib-text-decoration-none() {
+  text-decoration: none;
+}
+
+@mixin lib-transition(
+  $_property: all,
+  $_function: false,
+  $_duration: $default-transition,
+) {
+  @if $_function == false {
+    @include lib-css(transition, $_property $_duration);
+  } @else {
+    @include lib-css(transition, $_property $_duration $_function);
+  }
+}
+
+/**
+ * Transition
+ */
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+/**
+ * Box shadow
+ */
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+/**
+ * Double box shadow
+ */
+@mixin box-shadow-double($shadow, $shadow2) {
+  -webkit-box-shadow: $shadow, $shadow2;
+  -moz-box-shadow: $shadow, $shadow2;
+  box-shadow: $shadow, $shadow2;
+}
+
+/**
+ * Remove box-shadow (for overruling box shadow mixin)
+ */
+@mixin no-box-shadow() {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/**
+ * Border radius
+ */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin lib-server-perspective(
+  $value: 2000px
+) {
+  perspective: $value;
+  -webkit-perspective: $value;
+  -moz-perspective: $value;
+}
+
+@mixin lib-animation($name) {
+  -webkit-animation: $name 1s ease-out forwards;
+  -moz-animation: $name 1s ease-out forwards;
+  -o-animation: $name 1s ease-out forwards;
+  animation: $name 1s ease-out forwards;
+}
+
+@mixin lib-animation-extended ($name, $time, $out, $method) {
+  -webkit-animation: $name $time $out $method;
+  -moz-animation: $name $time $out $method;
+  -o-animation: $name $time $out $method;
+  animation: $name $time $out $method;
+}
+
+@mixin lib-animation-more-extended ($name, $time, $out, $method, $end-name, $end-time, $end-out) {
+  -webkit-animation: $name $time $out $method, $end-name $end-time $end-out;
+  -moz-animation: $name $time $out $method, $end-name $end-time $end-out;
+  -o-animation: $name $time $out $method, $end-name $end-time $end-out;
+  animation: $name $time $out $method, $end-name $end-time $end-out;
+}
+
+@mixin lib-user-select-none ( $value:none ) {
+  user-select: $value;
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin lib-focus-outline ($value: none) {
+  &:focus {
+    outline: $value;
+  }
+  &:-moz-focusring {
+    outline: $value;
+  }
+}
+
+@mixin lib-focus-color ($value) {
+  &:focus {
+    @include lib-css(color, $value);
+  }
+  &:-moz-focusring {
+    @include lib-css(color, $value);
+  }
+}

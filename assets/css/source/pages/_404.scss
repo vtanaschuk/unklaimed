@@ -1,0 +1,35 @@
+.page-404 {
+  .content-404 {
+    margin: ($indent__m * 2);
+  }
+
+  .image-404 img {
+    max-width: 270px;
+  }
+
+  p {
+    max-width: 490px;
+    margin: $indent__base 0;
+  }
+
+  h2 {
+    @include lib-font-size(28px);
+  }
+
+  .recently-viewed-items {
+    margin: $indent__xl 0;
+  }
+
+  .quick-order-wrapper {
+    display: none !important;
+  }
+}
+
+@media #{$mobile__max-width} {
+  .page-404 {
+    .content-404 {
+      margin: $indent__half 0 $indent__half 0;
+    }
+  }
+}
+

@@ -1,0 +1,79 @@
+@use 'sass:math' as math;
+//
+//  Sprites
+//  _____________________________________________
+
+@mixin lib-product-attribute-thumbnail-sprite(
+  $_sprite_width: $default-sprite__width,
+  $_sprite_height: $default-sprite__height
+) {
+  @include lib-sprite(
+    $_sprite_url: false,
+    $_sprite_width: $_sprite_width,
+    $_sprite_height: $_sprite_height
+  );
+}
+
+@mixin lib-product-attribute-thumbnail-sprite-size($_size: $scaled__size, $_default_size: $default-sprite__size) {
+  @include lib-sprite-item-size(
+    $_origin_size: $default-sprite__size,
+    $_needle_size: $_size
+  );
+}
+
+
+@mixin lib-sprite(
+  $_sprite_url,
+  $_sprite_width: false,
+  $_sprite_height: false
+) {
+  @include _lib-sprite($_sprite_url,
+    $_sprite_width,
+    $_sprite_height
+  );
+}
+
+@mixin lib-sprite-item-position($_x, $_y) {
+  @include _lib-icon-image-position($_x, $_y);
+}
+
+@mixin lib-sprite-item-size($_origin_size, $_needle_size) {
+  zoom: math.div($_needle_size, $_origin_size);
+  -moz-transform: scale(math.div($_needle_size, $_origin_size));
+  -moz-transform-origin: 0 0;
+  -webkit-transform: scale(math.div($_needle_size, $_origin_size));
+  -ms-transform: scale(math.div($_needle_size, $_origin_size));
+  transform: scale(math.div($_needle_size, $_origin_size));
+}
+
+@mixin _lib-sprite($_background_image,
+$_sprite_width,
+$_sprite_height
+) {
+  @include lib-css(background-image, $_background_image);
+  background-repeat: no-repeat;
+  background-size: auto;
+  @include lib-sprite-wrapper-size($_sprite_width, $_sprite_height);
+}
+
+@mixin lib-sprite-wrapper-size(
+  $_sprite_width,
+  $_sprite_height
+) {
+  @include lib-css(width, $_sprite_width);
+  @include lib-css(height, $_sprite_height);
+}
+
+@mixin lib-sprite-position(
+  $_sprite_position: relative,
+  $_top: false,
+  $_bottom: false,
+  $_right: false,
+  $_left: false
+) {
+  @include lib-css(position, $_sprite_position);
+  @include lib-css(top, $_top);
+  @include lib-css(bottom, $_bottom);
+  @include lib-css(right, $_right);
+  @include lib-css(left, $_left);
+}

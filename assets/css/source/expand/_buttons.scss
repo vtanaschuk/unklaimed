@@ -1,0 +1,54 @@
+.action {
+  &.primary {
+    @include button-primary();
+  }
+
+  &.secondary {
+    @include button-secondary();
+
+    &.md {
+      @include button-size($_padding: $indent__half $indent__base);
+    }
+  }
+
+  &.tertiary {
+    @include button-tertiary();
+  }
+
+  &.sm {
+    @include button-size($_padding: $indent__half ($indent__s + 5));
+  }
+
+  &.inactive,
+  &.disabled,
+  &[disabled] {
+    pointer-events: none;
+
+    &.primary,
+    &.secondary {
+      @include lib-css(background, $color-tiffany);
+    }
+
+    &.tertiary {
+      @include lib-css(background, $color-smoke);
+      @include lib-css(border-color, $color-grey);
+    }
+  }
+
+  &.des {
+    &.primary,
+    &.secondary {
+      @include lib-css(background, $color-roman);
+    }
+
+    &.tertiary {
+      @include lib-css(color, $color-roman);
+      @include lib-css(border-color, $color-roman);
+    }
+  }
+
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

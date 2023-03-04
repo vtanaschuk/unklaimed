@@ -1,0 +1,50 @@
+@media only screen and (max-width: 1024px) {
+
+  .how_it_work{
+    padding: 56px 0;
+    .how_it_work-title{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .content{
+      flex-wrap: wrap;
+      max-width: 600px;
+      .how_it_work_item{
+        margin-top: 45px;
+      }
+
+    }
+    .sub-title {
+      margin-bottom: 30px;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 465px) {
+  .how_it_work{
+    .sub-title{
+      margin-bottom: 0;
+    }
+    .content .how_it_work_item{
+      margin-top: 24px;
+    }
+    .how_it_work_block{
+      max-width: 100%;
+      .img_block{
+        margin: 0 0 16px 0;
+      }
+
+    }
+    .content{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .advantages .flex-grid.content{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

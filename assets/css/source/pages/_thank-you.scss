@@ -1,0 +1,37 @@
+.thank-you-page {
+  margin-top: 40px;
+
+  .thank-you-page__container {
+    display: flex;
+    align-items: center;
+
+    .thank-you-page__content {
+      margin-left: 40px;
+    }
+
+    .thank-you-page__image {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+@media #{$mobile__max-width} {
+  .thank-you-page {
+    margin-top: 20px;
+
+    .thank-you-page__container {
+      flex-direction: column;
+
+      .thank-you-page__content {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .thank-you-page__image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}

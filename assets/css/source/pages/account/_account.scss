@@ -1,0 +1,128 @@
+#my-account {
+  margin-top: 40px;
+
+  .my-account__list {
+    .my-account__list-item {
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      &:after {
+        width: 100%;
+        display: block;
+        background-color: $color-green;
+        height: 2px;
+        position: absolute;
+        bottom: -5px;
+        content: '';
+        transition: bottom .3s;
+      }
+
+      &:hover {
+        &:after {
+          bottom: 2px;
+        }
+      }
+
+      &.my-account__item_active {
+        &:after {
+          bottom: 2px;
+        }
+      }
+    }
+  }
+
+  .my-account__title {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .sf-bar {
+    margin-top: $indent__s;
+    margin-bottom: $indent__base;
+  }
+
+  .my-account__title,
+  .sf-bar__title {
+    font-weight: $font-weight__semibold;
+  }
+
+  .sf-bar__title {
+    @include lib-font-size(30px);
+  }
+
+  .sf-content-pages__title,
+  .sf-menu-item__label {
+    @include lib-font-size(16px);
+  }
+
+  .my-account__sidebar div:last-child ul li {
+    &:last-child {
+      &:after {
+        background-color: $color-roman;
+      }
+
+      .sf-menu-item__label {
+        color: $color-roman;
+      }
+    }
+  }
+
+  .action-button.sf-button,
+  .form__button.sf-button {
+    @include button-secondary();
+    text-transform: unset;
+    margin-top: $indent__s;
+  }
+
+  .form {
+    max-width: 700px;
+    margin-bottom: $indent__s;
+
+    .sf-input__label {
+
+    }
+
+    .sf-input__wrapper {
+      margin-bottom: $indent__half;
+    }
+
+    .form__horizontal .form__element:not(:last-child) {
+      margin-right: $indent__s;
+    }
+  }
+
+  .my-account__sidebar {
+    margin-top: 16px;
+    flex: initial;
+    margin-right: $indent__xl;
+  }
+
+  .my-account__content {
+    height: 100%;
+    overflow: unset;
+  }
+
+  .account-form-wrapper {
+    width: 50%;
+  }
+}
+
+@media #{$mobile__max-width} {
+  #my-account {
+    .account-form-wrapper {
+      width: 100%;
+    }
+
+    .form__button.sf-button {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}
+
+@import "_my-account";

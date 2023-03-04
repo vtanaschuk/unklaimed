@@ -1,0 +1,71 @@
+.form {
+  input,
+  button,
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+  }
+
+  .vs__dropdown-toggle,
+  input[type="number"],
+  input[type="password"],
+  input[type="text"],
+  input[type="email"] {
+    border: 1px solid $color-grey;
+    border-radius: 6px;
+    padding: $indent__quarter $indent__half;
+    @include lib-line-height(24px);
+
+    &:focus {
+      border-color: $color-black;
+    }
+  }
+
+  .vs__actions,
+  .vs__search,
+  .vs__search:focus,
+  .vs__selected {
+    margin: 0;
+    padding: 0;
+  }
+
+  .vs__actions svg path {
+    fill: $color-black;
+  }
+
+  input[type="number"],
+  input[type="password"],
+  input[type="text"],
+  input[type="email"] {
+    outline: none;
+    @include lib-input-placeholder($_input-placeholder-color: $color-grey, $_input-placeholder-font-size: 13px);
+  }
+
+  label {
+    > span {
+      display: block;
+      @include lib-font-size(14px);
+      margin-bottom: $indent__half;
+      color: $color-dark-grey;
+    }
+  }
+
+  .checkbox {
+    input {
+      @include lib-visually-hidden;
+    }
+
+    label {
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      @include lib-icon-font($_icon-font-content: $icon-checkbox, $_icon__margin: 0 $indent__half 0 0);
+    }
+
+    input:checked + label {
+      @include lib-icon-font-symbol($icon-checkbox-checked);
+    }
+  }
+}

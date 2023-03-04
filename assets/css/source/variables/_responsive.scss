@@ -1,0 +1,12 @@
+$responsive-mobile: 767px;
+$responsive-ipad-p: 992px;
+$responsive-ipad-l: 1199px;
+
+$mobile__max-width: '(max-width: #{$responsive-mobile})';
+$ipadP__max-width: '(max-width: #{$responsive-ipad-p})';
+$ipadL__max-width: '(max-width: #{$responsive-ipad-l})';
+$desktop__min-width: '(min-width: #{$responsive-ipad-l + 1})';
+
+$from-mobile-to-ipad-p: '(min-width: #{$responsive-mobile + 1}) and (max-width: #{$responsive-ipad-p})';
+$from-mobile-to-ipad-l: '(min-width: #{$responsive-mobile + 1}) and (max-width: #{$responsive-ipad-l})';
+$from-ipad-p-to-ipad-l: '(min-width: #{$responsive-ipad-p + 1}) and (max-width: #{$responsive-ipad-l})';

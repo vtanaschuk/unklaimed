@@ -1,0 +1,23 @@
+@mixin make-container(
+  $_container__max-width: 1405px,
+  $_left__gap: $indent__half,
+  $_right__gap: $indent__half
+) {
+  @include lib-css(max-width, $_container__max-width);
+  @include lib-css(padding-left, $_left__gap);
+  @include lib-css(padding-right, $_right__gap);
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@mixin make-container-big(
+  $_container__max-width: 1720px,
+) {
+  @include make-container($_container__max-width: $_container__max-width);
+}
+
+@mixin make-container-small(
+  $_container__max-width: 1170px,
+) {
+  @include make-container($_container__max-width: $_container__max-width);
+}

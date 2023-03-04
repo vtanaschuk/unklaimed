@@ -1,0 +1,22 @@
+.recently-viewed-items {
+  .category-products-items {
+    .product-item {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+@media #{$mobile__max-width} {
+  .recently-viewed-items {
+    .category-products-items {
+      .product-item-content {
+        height: 330px !important;
+
+        img {
+          height: 230px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
